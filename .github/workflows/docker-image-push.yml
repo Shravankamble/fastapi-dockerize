@@ -17,4 +17,8 @@ jobs:
         docker login -u $DOCKER_NAME -p $DOCKER_PWD
     - name: Build the Fastapi Docker image
       run: |
-        docker build . --file Dockerfile --tag fastapi-dockerize:$(date +%s)
+        docker build . --file Dockerfile --tag fastapi-dockerize:1.0
+    - name: docker push
+      run: |
+        echo "pushing the fastapi-dockerize image to docker registry"
+        docker push 
