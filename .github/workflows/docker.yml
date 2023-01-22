@@ -1,1 +1,14 @@
+name: fastapi Dockify CI CD
 
+
+on: [push]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+    - uses: action/checkout@v2
+    - name: docer build fastapi
+      run: | 
+        docker build -t fastapi-dockerize:v1.0 .
