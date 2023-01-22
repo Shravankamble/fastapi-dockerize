@@ -1,4 +1,4 @@
-# Topic: CI CD workflow
+# Topic : CI CD workflow
 this repository contains my learning about github actions
 for this we used the new github action by docker called (docker image),
 on every push on the repository we triggred this workflow
