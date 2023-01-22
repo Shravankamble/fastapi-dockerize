@@ -21,4 +21,4 @@ jobs:
     - name: docker push
       run: |
         echo "pushing the fastapi-dockerize image to docker registry"
-        docker push 
+        docker push shravankamble/fastapi-dockerize:1.0
