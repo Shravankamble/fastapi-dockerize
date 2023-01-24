@@ -12,12 +12,16 @@ jobs:
     - uses: actions/checkout@v3
     - name: echo hello
       run: echo "hello"
-
+    - name: Run Pyre Action
+      uses: facebook/pyre-action@v0.0.1
+      with:
+        repo-directory: './'
+        requirements-path: 'requirements.txt'
     - name: Build and Push Image To Docker registry 
       uses: mr-smithers-excellent/docker-build-push@v5.9
       with:
         image: shravankamble/fastapi-dockerize
-        tags: 1.0
+        tags: v0.0.1
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}

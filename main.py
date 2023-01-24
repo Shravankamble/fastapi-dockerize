@@ -1,11 +1,18 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 
 app = FastAPI()
+
+users = []
 
 @app.get("/")
 async def index():
     return "hello world!"
 
-@app.get("/{name}")
-async def customize(name: str):
-    return f"hello {name}"
+@app.get("/get/users")
+async def post(name: str):
+    return users
+
+@app.post("/post/users")
+async def create_user(name: str):
+    users.append(name)
+    return f"new user : {name}"
