@@ -7,11 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
+
     - name: echo hello
       run: echo "hello"
-      - name: Build and Push Image To Docker registry 
+
+    - name: Build and Push Image To Docker registry 
     - uses: mr-smithers-excellent/docker-build-push@v5.9
       with:
         image: shravankamble/fastapi-dockerize
