@@ -8,6 +8,10 @@ users = []
 async def index():
     return "hello world!"
 
+@app.get("/{name}")
+async def hello(name: str):
+    reutrn f"hello {name}"
+    
 @app.get("/get/users")
 async def post():
     return users
