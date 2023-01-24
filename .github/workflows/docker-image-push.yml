@@ -8,17 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: echo hello
-        uses: actions/checkout@v3
-        run: echo "hello"
+    - uses: actions/checkout@v3
+    - name: echo hello
+      run: echo "hello"
       - name: Build and Push Image To Docker registry 
-        uses: mr-smithers-excellent/docker-build-push@v5.9
-        with:
-          image: shravankamble/fastapi-dockerize
-          tags: 1.0
-          registry: docker.io
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+    - uses: mr-smithers-excellent/docker-build-push@v5.9
+      with:
+        image: shravankamble/fastapi-dockerize
+        tags: 1.0
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
 # - name: Run Pyre Actions
 #       uses: facebook/pyre-action@v0.0.1
