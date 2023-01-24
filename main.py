@@ -9,7 +9,7 @@ async def index():
     return "hello world!"
 
 @app.get("/get/users")
-async def post(name: str):
+async def post():
     return users
 
 @app.post("/post/users")
