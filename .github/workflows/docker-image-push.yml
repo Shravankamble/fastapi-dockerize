@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: echo hello
     - uses: actions/checkout@v3
+    - name: echo hello
       run: echo "hello"
 
     - name: Build and Push Image To Docker registry 
