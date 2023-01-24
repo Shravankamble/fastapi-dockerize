@@ -9,16 +9,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: docker login
-      env:
-        DOCKER_NAME: ${{ secrets.DOCKER_USERNAME  }}
-        DOCKER_PWD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        docker login -u $DOCKER_NAME -p $DOCKER_PWD
-    - name: Build the Fastapi Docker image
-      run: |
-        docker build . --file Dockerfile -t shravankamble/fastapi-dockerize:1.0
-    - name: docker push
-      run: |
-        echo "pushing the fastapi-dockerize image to docker registry"
-        docker push shravankamble/fastapi-dockerize:1.0
+      - name: echo hello
+          run: echo "hello"
+    - name: Run Pyre Actions
+      uses: facebook/pyre-action@v0.0.1
+      with: 
+        repo-directory: './'
+        requirements-path: 'requirements.txt'
+    - name: Build and Push Image To Docker registry 
+      uses: mr-smithers-excellent/docker-build-push@v5.9
+      with:
+        image: shravankamble/fastapi-dockerize
+        tags: 1.0
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
+# env:
+#           DOCKER_NAME: ${{ secrets.DOCKER_USERNAME  }}
+#           DOCKER_PWD: ${{ secrets.DOCKER_PASSWORD }}
+# run: |
+#         docker login -u $DOCKER_NAME -p $DOCKER_PWD
+#     - name: Build the Fastapi Docker image
+#       run: |
+#         docker build . --file Dockerfile -t shravankamble/fastapi-dockerize:1.0
+#     - name: docker push
+#       run: |
+#         echo "pushing the fastapi-dockerize image to docker registry"
+#         docker push shravankamble/fastapi-dockerize:1.0
