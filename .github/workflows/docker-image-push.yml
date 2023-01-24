@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: echo hello
       uses: actions/checkout@v3
-      run: echo "hello"
+        run: echo "hello"
 
     - name: Build and Push Image To Docker registry 
       uses: mr-smithers-excellent/docker-build-push@v5.9
