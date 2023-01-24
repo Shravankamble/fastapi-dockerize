@@ -15,4 +15,4 @@ async def post():
 @app.post("/post/users")
 async def create_user(name: str):
     users.append(name)
-    return f"new user : {name}"
+    return f"new user added : {name}"
