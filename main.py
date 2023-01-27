@@ -6,7 +6,7 @@ class User(BaseModel):
 
 app = FastAPI()
 
-users = []
+users = [] 
 
 @app.get("/", status_code=status.HTTP_200_OK)
 async def index():
@@ -17,6 +17,7 @@ async def post():
     return users
 
 @app.post("/post/users", status_code=status.HTTP_201_CREATED)
-async def create_user(name: dict):
-    users.append(name)
+async def create_user(name: User):
+    user = name.dict()
+    users.append(user)
     return f"new user : {name}"
