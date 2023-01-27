@@ -18,5 +18,5 @@ async def post():
 
 @app.post("/post/users", status_code=status.HTTP_201_CREATED)
 async def create_user(name: dict):
-    users.append(name.name)
-    return f"new user : {name.name}"
+    users.append(name)
+    return f"new user : {name}"
