@@ -1,4 +1,8 @@
 from fastapi import FastAPI, status
+from pydantic import BaseModel
+
+class User(BaseModel):
+    name: str
 
 app = FastAPI()
 
@@ -13,6 +17,7 @@ async def post():
     return users
 
 @app.post("/post/users", status_code=status.HTTP_201_CREATED)
-async def create_user(name: str):
-    users.append(name)
-    return f"new user : {name}"
+async def create_user(name: User):
+    user = name.dict()
+    users.append(user.name)
+    return f"new user : {user.name}"
