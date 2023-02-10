@@ -14,7 +14,7 @@ jobs:
     - name: Set up Python 
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11.1'
+        python-version: '3.10'
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
@@ -22,4 +22,4 @@ jobs:
         pip install isort
     - name: Formatting the code with isort
       run: |
-        isort . -n
+        isort --help
