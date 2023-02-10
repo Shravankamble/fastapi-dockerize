@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status
+from fastapi import FastAPI status
 from pydantic import BaseModel
 
 class User(BaseModel):
