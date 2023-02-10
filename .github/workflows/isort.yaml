@@ -22,4 +22,4 @@ jobs:
         pip install isort
     - name: Formatting the code with isort
       run: |
-        isort .
+        isort . n
