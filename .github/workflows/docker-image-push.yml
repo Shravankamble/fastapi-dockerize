@@ -20,7 +20,7 @@ jobs:
         pip install isort
     - name: Formatting the code with isort
       run: |
-        isort main.py
+        isort --check --diff .
 
   build:
     needs: formatter

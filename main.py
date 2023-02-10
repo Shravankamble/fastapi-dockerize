@@ -1,11 +1,10 @@
+from fastapi import FastAPI, status
 from pydantic import BaseModel
 
 class User(BaseModel):
     name: str
 
 app = FastAPI()
-
-from fastapi import FastAPI, status
 
 users = [] 
 
