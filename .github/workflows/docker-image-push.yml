@@ -17,10 +17,10 @@ jobs:
       run: |
         pip install -r requirements.txt
         python -m pip install --upgrade pip
-        pip install isort
+        pip install mypy
     - name: Formatting the code with isort
       run: |
-        isort --check --diff .
+        mypy main.py
 
   build:
     needs: formatter
