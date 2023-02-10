@@ -4,6 +4,7 @@ class User(BaseModel):
     name: str
 
 from pydantic import BaseModel
+from fastapi import security
 
 app = FastAPI()
 
