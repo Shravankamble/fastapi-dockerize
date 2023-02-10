@@ -6,7 +6,7 @@ class User(BaseModel):
 
 app = FastAPI()
 
-users = [] 
+users: list = [] 
 
 @app.get("/", status_code=status.HTTP_200_OK)
 async def index():
