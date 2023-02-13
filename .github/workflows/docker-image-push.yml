@@ -30,6 +30,7 @@ jobs:
     - name: echo hello
       run: echo "hello"
     - name: Build and Push Image To Docker registry 
+      # To push our docker image to docker registry we are using below action to build the image and push it.
       uses: mr-smithers-excellent/docker-build-push@v5.9
       with:
         image: shravankamble/fastapi-dockerize
