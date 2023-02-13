@@ -18,7 +18,7 @@ jobs:
         pip install -r requirements.txt
         python -m pip install --upgrade pip
         pip install mypy
-    - name: Formatting the code with isort
+    - name: Checking the code with mypy
       run: |
         mypy main.py
 
