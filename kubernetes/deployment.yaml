@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: fastapi-c
+        image: shravankamble/fastapi-dockerize:v0.0.2
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "60m"
+        ports:
+        - containerPort: 8000
