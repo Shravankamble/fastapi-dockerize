@@ -1,16 +1,20 @@
 from fastapi import FastAPI, status
 from pydantic import BaseModel
+import logging
 
 class User(BaseModel):
     name: str
+
+logging.basicConfig(filename='apps.log', level='INFO')
 
 app = FastAPI()
 
 users: list = [] 
 
-@app.get("/", status_code=status.HTTP_200_OK)
-async def index():
-    return "hello world!"
+@app.get("/{name}", status_code=status.HTTP_200_OK)
+async def index(name: str):
+    logging.info(f"message : hello {name}")
+    return f"hello {name}!"
 
 @app.get("/get/users", status_code=status.HTTP_200_OK)
 async def post():
